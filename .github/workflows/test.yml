@@ -10,11 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           submodules: 'recursive'
+      - name: Pre-populate nix-shell
+        run: |
+            echo "PR HEAD: ${{ github.event.pull_request.head.sha }}"
+            echo "MY COMMITS...."
+            echo "TOP OF TARGET BRANCH: ${{ github.event.pull_request.base.sha }}"
+            git log
       - name: Dump GitHub context
         env:
             GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-            echo
-            echo "a"
             echo "$GITHUB_CONTEXT"
