@@ -12,4 +12,5 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Get env
-        run: env
+        run: |
+            env
