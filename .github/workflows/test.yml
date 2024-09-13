@@ -15,4 +15,5 @@ jobs:
         run: |
             echo "PR HEAD: ${{ github.event.pull_request.head.sha }}"
             echo "MY COMMITS...."
-            echo "PR BASE: ${{ github.event.pull_request.base.sha }}"
+            echo "TOP OF TARGET BRANCH: ${{ github.event.pull_request.base.sha }}"
+            git log
